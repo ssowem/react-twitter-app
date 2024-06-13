@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "baseUrl": "src",
     "lib": [
       "dom",
       "dom.iterable",
@@ -20,7 +21,10 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src"],
+  "paths":{
+    "pages/*":["pages/*"],    // 소스 폴더안에 모든파일들을 pages라고 선언
+    "components/*":["components/*"], 
+    "firebaseApp/*":["firebaseApp/*"] 
+  }
 }
