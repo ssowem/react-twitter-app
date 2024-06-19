@@ -85,7 +85,7 @@ export default function LoginForm() {
       <div className="form__block">
         계정이 없으신가요?
         <Link to="/users/signup" className="form__link">
-          회원가입
+          회원가입하기
         </Link>
       </div>
       <div className="form__block--lg">

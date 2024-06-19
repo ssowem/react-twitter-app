@@ -30,6 +30,7 @@ export default function Router({ isAuthenticated }: RouterProps) {
           <Route path="/profile/edit" element={<ProfileEdit />} />
           <Route path="/notifications" element={<NotificationsPage />} />
           <Route path="/search" element={<SearchPage />} />
+          <Route path="*" element={<Navigate replace to="/" />} />
         </>
       ) : (
         <>

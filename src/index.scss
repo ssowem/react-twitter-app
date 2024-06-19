@@ -1,5 +1,5 @@
 $background: #1e293b;
-$activeBg: #1e293b5f;
+$activeBg: #485c7a5f;
 $white: #ffffff;
 $border: #708090;
 $promaryColor: #60a5fa;
@@ -323,5 +323,29 @@ body {
 
   &__error {
     color: red;
+  }
+
+  &__btn--google {
+    @extend .form__btn--submit;
+    background-color: $white;
+    color: $activeBorder;
+
+    &:hover,
+    &:focus {
+      background-color: $activeBorder;
+      color:$white;
+    }
+  }
+
+  &__btn--github {
+    @extend .form__btn--submit;
+    background-color: black;
+    color: white;
+
+    &:hover,
+    &:focus {
+      background-color: $activeBg;
+      color:$white;
+    }
   }
 }
