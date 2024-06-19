@@ -1,9 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { BsHouse } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
-import { MdLogout } from "react-icons/md";
+import { MdLogin, MdLogout } from "react-icons/md";
+import { useContext } from "react";
+import AuthContext from "context/AuthContext";
 
 export default function MenuList() {
+  const {user} = useContext(AuthContext); // 사용자정보
+  console.log(user);
   const navigate = useNavigate();
   return (
     <div className="footer">
@@ -16,10 +20,18 @@ export default function MenuList() {
           <BiUserCircle />
           Profile
         </button>
-        <button type="button" onClick={() => navigate("/")}>
-          <MdLogout />
-          Logout
-        </button>
+        {/* user값이 없으면 로그인버튼, 있으면 로그아웃 버튼 */}
+        {user === null ? (
+          <button type="button" onClick={() => navigate("/users/login")}>
+            <MdLogin />
+            Login
+          </button>
+        ) : (
+          <button type="button" onClick={() => navigate("/")}>
+            <MdLogout />
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
