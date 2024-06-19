@@ -4,7 +4,9 @@ import { BiUserCircle } from "react-icons/bi";
 import { MdLogin, MdLogout } from "react-icons/md";
 import { useContext } from "react";
 import AuthContext from "context/AuthContext";
-
+import { toast } from "react-toastify";
+import { app } from "firebaseApp";
+import { getAuth,signOut } from "firebase/auth";
 export default function MenuList() {
   const {user} = useContext(AuthContext); // 사용자정보
   console.log(user);
@@ -27,7 +29,13 @@ export default function MenuList() {
             Login
           </button>
         ) : (
-          <button type="button" onClick={() => navigate("/")}>
+          // <button type="button" onClick={() => navigate("/")}>
+          <button type="button" onClick={async () => {
+            const auth = getAuth(app);
+            await signOut(auth);
+            toast.success('로그아웃 되었습니다.')
+          }}>
+
             <MdLogout />
             Logout
           </button>
