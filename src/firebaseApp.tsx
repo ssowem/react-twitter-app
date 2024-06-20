@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { FirebaseApp, getApp, initializeApp } from "firebase/app";
-
+import { getFirestore } from "firebase/firestore";
 
 export let app: FirebaseApp;
 const firebaseConfig = {
@@ -13,11 +13,13 @@ const firebaseConfig = {
 };
 
 try {
-    app = getApp("app")
+  app = getApp("app");
 } catch (e) {
-    app=initializeApp(firebaseConfig,"app");
+  app = initializeApp(firebaseConfig, "app");
 }
 
 const firebase = initializeApp(firebaseConfig);
+
+export const db = getFirestore(app);
 
 export default firebase;
